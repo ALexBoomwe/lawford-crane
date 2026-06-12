@@ -1,0 +1,1158 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Guaranteed London Rent — Fixed Income for Prime Central London Property Owners</title>
+<meta name="description" content="Fixed, predictable rental income for owners of prime central London property. Paid whether occupied or empty. 0% management fee. Up to 5 years of rent paid upfront. Mayfair, Belgravia, Kensington, Chelsea, Marylebone, St John's Wood." />
+<meta name="theme-color" content="#0a0908" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0a0908;
+    --charcoal:#121110;
+    --charcoal-2:#17150f;
+    --panel:#1a1813;
+    --line:rgba(200,166,98,.16);
+    --line-soft:rgba(255,255,255,.08);
+    --gold:#c6a662;
+    --gold-bright:#dcc188;
+    --gold-deep:#a8893f;
+    --beige:#d9cbb3;
+    --text:#efe9df;
+    --muted:rgba(239,233,223,.62);
+    --muted-2:rgba(239,233,223,.42);
+    --serif:'Cormorant Garamond', Georgia, serif;
+    --sans:'Inter', system-ui, -apple-system, sans-serif;
+    --maxw:1280px;
+    --r:18px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--sans);
+    background:var(--black);
+    color:var(--text);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;display:block}
+  ::selection{background:rgba(198,166,98,.28);color:#fff}
+
+  /* ---------- film grain + glow ---------- */
+  .grain{position:fixed;inset:0;z-index:120;pointer-events:none;opacity:.04;
+    background-image:radial-gradient(#fff 1px,transparent 1px);background-size:3px 3px;mix-blend-mode:overlay}
+
+  /* ---------- typography helpers ---------- */
+  .serif{font-family:var(--serif)}
+  .eyebrow{font-size:11px;letter-spacing:.42em;text-transform:uppercase;color:var(--gold);font-weight:500}
+  .kicker{display:inline-block;font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);
+    padding:8px 16px;border:1px solid var(--line);border-radius:100px;background:rgba(198,166,98,.05);font-weight:500}
+  h1,h2,h3{font-family:var(--serif);font-weight:500;letter-spacing:-.01em;line-height:1.04}
+  .section-title{font-size:clamp(28px,3.6vw,48px);line-height:1.12;font-weight:400}
+  .lead{font-size:clamp(16px,1.4vw,19px);color:var(--muted);max-width:62ch;font-weight:300}
+  .gold-text{color:var(--gold-bright)}
+
+  /* ---------- layout ---------- */
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 40px}
+  section{position:relative}
+  .band{padding:120px 0}
+  .band-tight{padding:90px 0}
+  .divider-gold{width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto}
+
+  /* ---------- buttons ---------- */
+  .btn{display:inline-flex;align-items:center;gap:12px;height:58px;padding:0 32px;border-radius:6px;
+    font-size:12.5px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;
+    transition:.4s cubic-bezier(.2,.8,.2,1);border:1px solid var(--gold);white-space:nowrap;font-family:var(--sans)}
+  .btn .ar{font-family:var(--serif);font-size:20px;line-height:1;transition:.4s}
+  .btn-primary{background:linear-gradient(180deg,var(--gold-bright),var(--gold));color:#1a1408;border-color:transparent;
+    box-shadow:0 10px 40px -12px rgba(198,166,98,.55)}
+  .btn-primary:hover{transform:translateY(-3px);box-shadow:0 18px 50px -12px rgba(198,166,98,.7)}
+  .btn-ghost{background:rgba(255,255,255,.02);color:var(--text);border-color:rgba(255,255,255,.18)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright);transform:translateY(-3px)}
+  .btn:hover .ar{transform:translateX(5px)}
+
+  /* ---------- header ---------- */
+  header{position:fixed;top:0;left:0;right:0;z-index:100;transition:.4s ease}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;padding:24px 40px;transition:.4s ease}
+  header.scrolled .nav-inner{padding:16px 40px;background:rgba(10,9,8,.82);backdrop-filter:blur(20px);
+    border-bottom:1px solid var(--line-soft)}
+  .brand{display:flex;align-items:center;gap:14px;font-family:var(--serif);font-size:22px;letter-spacing:.02em;color:#fff}
+  .brand .mark{width:34px;height:34px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;
+    font-size:14px;color:var(--gold);font-family:var(--serif)}
+  .brand small{display:block;font-family:var(--sans);font-size:8.5px;letter-spacing:.34em;text-transform:uppercase;color:var(--muted-2);margin-top:2px}
+  .nav{display:flex;align-items:center;gap:34px}
+  .nav a{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:500;transition:.3s;position:relative}
+  .nav a:hover{color:var(--gold-bright)}
+  .nav a::after{content:"";position:absolute;left:0;bottom:-6px;width:0;height:1px;background:var(--gold);transition:.3s}
+  .nav a:hover::after{width:100%}
+  .nav-cta{display:inline-flex;align-items:center;height:44px;padding:0 22px;border:1px solid var(--gold);border-radius:5px;
+    color:var(--gold-bright);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600;transition:.3s}
+  .nav-cta:hover{background:var(--gold);color:#1a1408}
+  .burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px}
+  .burger span{width:24px;height:1.5px;background:var(--text);transition:.3s}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;padding:150px 0 80px}
+  .hero-bg{position:absolute;inset:0;z-index:0;background:#060606}
+  .hero-bg video,.hero-bg img{width:100%;height:100%;object-fit:cover;
+    filter:grayscale(1) contrast(1.08) brightness(.82);transform:scale(1.04);
+    animation:heroZoom 26s ease-out forwards}
+  @keyframes heroZoom{from{transform:scale(1.04)}to{transform:scale(1.13)}}
+  .hero-bg::after{content:"";position:absolute;inset:0;
+    background:
+      linear-gradient(105deg,rgba(10,9,8,.96) 0%,rgba(10,9,8,.78) 38%,rgba(10,9,8,.42) 70%,rgba(10,9,8,.72) 100%),
+      linear-gradient(180deg,rgba(10,9,8,.5) 0%,rgba(10,9,8,.05) 30%,rgba(10,9,8,.55) 78%,rgba(10,9,8,.98) 100%)}
+  .hero-grid{position:relative;z-index:2;display:flex;justify-content:center;width:100%}
+  .hero-copy{max-width:760px;margin:0 auto;text-align:center}
+  .hero h1{font-size:clamp(30px,3.6vw,52px);line-height:1.15;color:#fff;font-weight:400;letter-spacing:.004em;overflow-wrap:break-word}
+  .hero h1 em{font-style:italic;color:var(--gold-bright)}
+
+  /* exclusivity — soft, edges dissolving into nothing */
+  .exclusivity{position:relative;margin:32px auto;padding:24px 30px;max-width:640px;text-align:center;border:0;
+    background:radial-gradient(ellipse 72% 130% at center,rgba(198,166,98,.09),transparent 70%)}
+  .exclusivity::before,.exclusivity::after{content:"";position:absolute;left:50%;transform:translateX(-50%);
+    width:min(100%,500px);height:1px;background:linear-gradient(90deg,transparent,rgba(198,166,98,.6) 50%,transparent)}
+  .exclusivity::before{top:0}
+  .exclusivity::after{bottom:0}
+  .exc-label{display:block;font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--gold-bright);
+    font-weight:600;margin-bottom:13px}
+  .exclusivity p{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--beige);line-height:2;font-weight:500;
+    max-width:560px;margin:0 auto}
+
+  .hero-sub{font-size:15.5px;color:var(--muted);max-width:540px;margin:0 auto 18px;font-weight:300;line-height:1.75}
+  .hero-secondary{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--beige);margin-bottom:36px}
+  .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-bottom:24px}
+  .hero-note{font-size:12.5px;color:var(--muted-2);max-width:460px;letter-spacing:.01em;margin:0 auto}
+
+  /* ---------- calculator (standalone, below hero) ---------- */
+  .calc{position:relative;z-index:2;border:1px solid var(--line);border-radius:20px;padding:38px;
+    width:100%;max-width:900px;margin:0 auto;
+    background:linear-gradient(165deg,rgba(30,27,20,.86),rgba(14,13,11,.9));backdrop-filter:blur(26px);
+    box-shadow:0 40px 100px -34px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.05)}
+  .calc-body{display:grid;grid-template-columns:1fr 1fr;gap:42px;align-items:stretch}
+  .calc-inputs{display:flex;flex-direction:column}
+  .calc-field{margin-bottom:22px}
+  .calc-field label{display:flex;justify-content:space-between;align-items:baseline;font-size:11px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);margin-bottom:11px;font-weight:500}
+  .calc-field label .val{font-family:var(--serif);font-size:19px;color:var(--gold-bright);letter-spacing:0;text-transform:none}
+  .calc-input{display:flex;align-items:center;border:1px solid var(--line-soft);border-radius:9px;background:rgba(0,0,0,.32);
+    overflow:hidden;transition:.3s}
+  .calc-input:focus-within{border-color:var(--gold)}
+  .calc-input .prefix{padding:0 0 0 15px;color:var(--gold);font-family:var(--serif);font-size:17px}
+  .calc-input input[type=number]{flex:1;background:transparent;border:0;outline:0;color:#fff;font-size:15.5px;font-weight:500;
+    padding:13px 15px;font-family:var(--sans);-moz-appearance:textfield}
+  .calc-input input::-webkit-outer-spin-button,.calc-input input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+  input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:3px;border-radius:3px;
+    background:linear-gradient(90deg,var(--gold) var(--fill,40%),rgba(255,255,255,.12) var(--fill,40%));outline:0;margin-top:5px}
+  input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:17px;height:17px;border-radius:50%;
+    background:var(--gold-bright);cursor:pointer;box-shadow:0 0 0 5px rgba(198,166,98,.18);transition:.2s}
+  input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.12)}
+  input[type=range]::-moz-range-thumb{width:17px;height:17px;border:0;border-radius:50%;background:var(--gold-bright);cursor:pointer}
+  .calc-disclaimer{margin-top:auto;padding-top:14px;font-size:11px;color:var(--muted-2);line-height:1.5}
+
+  .calc-outputs{display:flex;flex-direction:column;justify-content:center;gap:4px;
+    border-left:1px solid var(--line);padding-left:42px}
+  .out-row{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:10px 0;border-bottom:1px solid var(--line-soft)}
+  .out-row:last-child{border-bottom:0}
+  .out-row span{font-size:13px;color:var(--muted);letter-spacing:.01em;line-height:1.35}
+  .out-row b{font-family:var(--serif);font-size:20px;color:#fff;font-weight:500;letter-spacing:-.01em;white-space:nowrap}
+  .out-row.feature{margin-top:8px;padding:15px 17px;border:1px solid var(--line);border-radius:11px;
+    background:rgba(198,166,98,.07);border-bottom:1px solid var(--line)}
+  .out-row.feature b{color:var(--gold-bright);font-size:24px}
+
+  /* ---------- generic cards ---------- */
+  .card{border:1px solid var(--line-soft);border-radius:var(--r);padding:30px;background:rgba(255,255,255,.018);
+    transition:.4s;position:relative;overflow:hidden}
+  .card:hover{border-color:var(--line);background:rgba(198,166,98,.04);transform:translateY(-4px)}
+  .card h4{font-family:var(--serif);font-size:23px;color:#fff;font-weight:500;margin-bottom:10px}
+  .card p{font-size:14px;color:var(--muted);font-weight:300}
+  .card .ic{width:46px;height:46px;border:1px solid var(--line);border-radius:11px;display:grid;place-items:center;
+    margin-bottom:20px;color:var(--gold);font-family:var(--serif);font-size:20px}
+
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+  .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+  .grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+  .head-center{text-align:center;max-width:780px;margin:0 auto 56px}
+  .head-center .kicker{margin-bottom:22px}
+  .head-center h2{margin-bottom:22px}
+  .head-center .lead{margin:0 auto}
+
+  /* section background image treatment */
+  .bg-img{position:absolute;inset:0;z-index:0;opacity:.16;filter:grayscale(1) contrast(1.05)}
+  .bg-img img{width:100%;height:100%;object-fit:cover}
+  .bg-fade::after{content:"";position:absolute;inset:0;z-index:1;
+    background:linear-gradient(180deg,var(--black),transparent 18%,transparent 82%,var(--black))}
+  .band .wrap{position:relative;z-index:2}
+
+  /* split layout */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+  .split .copy h2{margin-bottom:24px}
+  .split .copy .lead{margin-bottom:22px}
+
+  /* highlight quote */
+  .quote-band{padding:80px 0;text-align:center;background:
+    radial-gradient(ellipse at center,rgba(198,166,98,.07),transparent 70%)}
+  .quote-band p{font-family:var(--serif);font-style:italic;font-size:clamp(28px,4vw,48px);color:#fff;font-weight:500;line-height:1.2;max-width:18ch;margin:0 auto}
+  .quote-band p em{color:var(--gold-bright);font-style:italic}
+
+  /* breakdown table */
+  .breakdown{border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:rgba(26,24,19,.4);backdrop-filter:blur(12px)}
+  .breakdown .br-row{display:flex;justify-content:space-between;align-items:center;padding:18px 26px;border-bottom:1px solid var(--line-soft);font-size:15px}
+  .breakdown .br-row:last-child{border-bottom:0}
+  .breakdown .br-row span{color:var(--muted)}
+  .breakdown .br-row b{font-family:var(--serif);font-size:21px;color:#fff;font-weight:500}
+  .breakdown .br-row.accent{background:rgba(198,166,98,.08)}
+  .breakdown .br-row.accent b{color:var(--gold-bright)}
+
+  /* big number feature */
+  .bignum{font-family:var(--serif);font-size:clamp(80px,13vw,180px);line-height:.9;color:var(--gold-bright);font-weight:500;letter-spacing:-.03em}
+
+  /* risk list */
+  .risk-card{display:flex;gap:20px;padding:26px;border:1px solid var(--line-soft);border-radius:14px;background:rgba(255,255,255,.018);transition:.4s}
+  .risk-card:hover{border-color:var(--line);background:rgba(198,166,98,.04)}
+  .risk-card .num{font-family:var(--serif);font-size:30px;color:var(--gold);line-height:1;min-width:40px}
+  .risk-card h4{font-family:var(--serif);font-size:20px;color:#fff;margin-bottom:6px;font-weight:500}
+  .risk-card p{font-size:13.5px;color:var(--muted);font-weight:300}
+
+  /* comparison table */
+  .compare-scroll{overflow-x:auto;border:1px solid var(--line);border-radius:var(--r);background:rgba(26,24,19,.35)}
+  table.compare{width:100%;border-collapse:collapse;min-width:760px}
+  table.compare th,table.compare td{padding:20px 22px;text-align:left;border-bottom:1px solid var(--line-soft);font-size:14px;vertical-align:top}
+  table.compare thead th{font-family:var(--serif);font-size:18px;font-weight:500;color:#fff;background:rgba(0,0,0,.3);border-bottom:1px solid var(--line)}
+  table.compare thead th:first-child{color:var(--muted);font-family:var(--sans);font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:600}
+  table.compare tbody th{font-family:var(--sans);font-weight:600;color:var(--beige);font-size:13.5px;width:23%}
+  table.compare td{color:var(--muted)}
+  table.compare .ours{background:rgba(198,166,98,.07);color:var(--text)}
+  table.compare thead th.ours{background:rgba(198,166,98,.14);color:var(--gold-bright)}
+  table.compare tbody tr:last-child th,table.compare tbody tr:last-child td{border-bottom:0}
+  .ours-flag{display:inline-block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);
+    border-radius:100px;padding:3px 9px;margin-top:8px}
+
+  /* steps */
+  .steps{display:grid;gap:0}
+  .step{display:grid;grid-template-columns:120px 1fr;gap:36px;padding:38px 0;border-top:1px solid var(--line-soft);align-items:start}
+  .step:last-child{border-bottom:1px solid var(--line-soft)}
+  .step .st-num{font-family:var(--serif);font-size:62px;color:var(--gold);line-height:.8;font-weight:500;opacity:.85}
+  .step h4{font-family:var(--serif);font-size:27px;color:#fff;margin-bottom:10px;font-weight:500}
+  .step p{font-size:15px;color:var(--muted);max-width:60ch;font-weight:300}
+
+  /* scenario cards */
+  .scenario{border:1px solid var(--line-soft);border-radius:var(--r);padding:32px;background:rgba(255,255,255,.018);transition:.4s}
+  .scenario:hover{border-color:var(--line);transform:translateY(-4px)}
+  .scenario .tag{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;font-weight:600}
+  .scenario h4{font-family:var(--serif);font-size:24px;color:#fff;font-weight:500;margin-bottom:18px}
+  .scenario ul{list-style:none;display:grid;gap:11px}
+  .scenario li{display:flex;justify-content:space-between;gap:16px;font-size:13.5px;color:var(--muted);padding-bottom:11px;border-bottom:1px solid var(--line-soft)}
+  .scenario li:last-child{border-bottom:0}
+  .scenario li b{color:var(--gold-bright);font-weight:500;text-align:right}
+  .scenario .result{margin-top:18px;font-size:13.5px;color:var(--beige);font-style:italic;font-family:var(--serif);font-size:16px}
+
+  /* trust */
+  .trust-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .trust-item{display:flex;align-items:flex-start;gap:14px;padding:20px;border:1px solid var(--line-soft);border-radius:12px;background:rgba(255,255,255,.015)}
+  .trust-item .chk{color:var(--gold);font-family:var(--serif);font-size:18px;line-height:1.4}
+  .trust-item span{font-size:14px;color:var(--text);font-weight:300}
+
+  /* faq */
+  .faq{max-width:880px;margin:0 auto}
+  .faq-item{border-bottom:1px solid var(--line-soft)}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:26px 0;cursor:pointer}
+  .faq-q h4{font-family:var(--serif);font-size:clamp(20px,2.3vw,26px);color:#fff;font-weight:500}
+  .faq-q .pm{font-family:var(--serif);font-size:30px;color:var(--gold);transition:.3s;line-height:1}
+  .faq-item.open .pm{transform:rotate(45deg)}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .45s ease,opacity .4s ease;opacity:0}
+  .faq-item.open .faq-a{max-height:300px;opacity:1}
+  .faq-a p{padding:0 0 28px;font-size:15.5px;color:var(--muted);max-width:70ch;font-weight:300}
+
+  /* final cta + form */
+  .final{position:relative;overflow:hidden}
+  .form-card{border:1px solid var(--line);border-radius:24px;padding:42px;background:linear-gradient(165deg,rgba(30,27,20,.7),rgba(14,13,11,.85));backdrop-filter:blur(20px);box-shadow:0 40px 100px -30px rgba(0,0,0,.7)}
+  .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .field{display:flex;flex-direction:column;gap:8px}
+  .field.full{grid-column:1/-1}
+  .field label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);font-weight:500}
+  .field input,.field select{background:rgba(0,0,0,.3);border:1px solid var(--line-soft);border-radius:9px;padding:13px 15px;
+    color:#fff;font-size:14.5px;font-family:var(--sans);outline:0;transition:.3s}
+  .field input:focus,.field select:focus{border-color:var(--gold)}
+  .field select{appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c6a662' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+    background-repeat:no-repeat;background-position:right 15px center}
+  .field input::placeholder{color:var(--muted-2)}
+  .form-note{font-size:12px;color:var(--muted-2);margin-top:18px}
+  .form-success{display:none;text-align:center;padding:30px 0}
+  .form-success.show{display:block}
+  .form-success .tick{width:64px;height:64px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;margin:0 auto 22px;color:var(--gold);font-size:30px;font-family:var(--serif)}
+
+  /* footer */
+  footer{border-top:1px solid var(--line-soft);padding:80px 0 40px;background:var(--charcoal)}
+  .foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:50px;margin-bottom:56px}
+  .foot-brand .brand{margin-bottom:22px}
+  .foot-brand p{font-size:14px;color:var(--muted);max-width:42ch;font-weight:300}
+  .foot-col h5{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:20px;font-weight:600}
+  .foot-col a,.foot-col p{display:block;font-size:14px;color:var(--muted);margin-bottom:12px;font-weight:300;transition:.3s}
+  .foot-col a:hover{color:var(--gold-bright)}
+  .foot-bottom{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-top:30px;border-top:1px solid var(--line-soft);flex-wrap:wrap}
+  .foot-phrase{font-family:var(--serif);font-style:italic;font-size:18px;color:var(--beige)}
+  .foot-legal{font-size:12px;color:var(--muted-2)}
+
+  .note-box{border:1px solid var(--line);border-radius:12px;padding:18px 22px;background:rgba(198,166,98,.04);font-size:13.5px;color:var(--beige);font-weight:300;display:flex;gap:14px;align-items:flex-start}
+  .note-box .ic{color:var(--gold);font-family:var(--serif);font-size:18px;line-height:1.3}
+  .disclaimer-sm{font-size:12px;color:var(--muted-2);margin-top:18px;max-width:70ch}
+
+  /* ---- scroll reveals — non-standard cinematic transitions ---- */
+  .reveal{opacity:0;transform:translateY(46px) scale(.985);filter:blur(7px);
+    clip-path:inset(6% 0 12% 0);
+    transition:opacity 1s cubic-bezier(.16,1,.3,1),transform 1.05s cubic-bezier(.16,1,.3,1),
+      filter .85s ease,clip-path 1.05s cubic-bezier(.16,1,.3,1);
+    transition-delay:var(--d,0s)}
+  .reveal.in{opacity:1;transform:none;filter:none;clip-path:inset(0 0 0 0)}
+  /* directional + special variants (assigned in JS) */
+  .rv-left{transform:translateX(-70px) scale(.99);clip-path:inset(0 6% 0 0)}
+  .rv-right{transform:translateX(70px) scale(.99);clip-path:inset(0 0 0 6%)}
+  .rv-zoom{transform:scale(.84);filter:blur(12px);clip-path:inset(0)}
+  .rv-rise{transform:translateY(70px) scale(.97)}
+  .rv-clip{opacity:1;transform:none;filter:none;clip-path:inset(0 102% 0 0)}
+  .rv-clip.in{clip-path:inset(0 0 0 0)}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:1080px){
+    .calc-body{gap:34px}
+    .grid-4{grid-template-columns:repeat(2,1fr)}
+    .trust-grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media(max-width:820px){
+    .wrap{padding:0 22px}
+    .nav,.nav-cta{display:none}
+    .burger{display:flex}
+    .band{padding:58px 0}
+    .band-tight{padding:46px 0}
+    .section-title{font-size:25px;line-height:1.18}
+    .lead{font-size:14.5px;line-height:1.62;max-width:100%}
+    .head-center{margin-bottom:32px}
+    .head-center .kicker{margin-bottom:16px}
+    .kicker{font-size:10px;padding:7px 13px}
+    .grid-3,.grid-2{grid-template-columns:1fr;gap:10px}
+    .split{grid-template-columns:1fr;gap:28px}
+    /* feature cards become tap-to-expand rows */
+    .card{padding:15px 16px;display:flex;flex-wrap:wrap;align-items:center;gap:13px;cursor:pointer;transition:.3s}
+    .card:hover{transform:none;background:rgba(255,255,255,.018);border-color:var(--line-soft)}
+    .card.open{background:rgba(198,166,98,.05);border-color:var(--line)}
+    .card .ic{order:0;width:34px;height:34px;margin-bottom:0;font-size:16px;border-radius:9px;flex:0 0 auto}
+    .card h4{order:1;flex:1 1 auto;font-size:15px;margin-bottom:0;line-height:1.25}
+    .card::after{order:2;content:"+";flex:0 0 auto;font-family:var(--serif);font-size:24px;color:var(--gold);line-height:.7;transition:transform .3s}
+    .card.open::after{transform:rotate(45deg)}
+    .card p{order:3;flex:0 0 100%;font-size:13px;max-height:0;opacity:0;overflow:hidden;margin:0;
+      transition:max-height .4s ease,opacity .3s ease,margin-top .3s ease}
+    .card.open p{max-height:240px;opacity:1;margin-top:5px}
+    /* risk cards become tap-to-expand rows */
+    .risk-card{padding:15px 16px;gap:13px;align-items:flex-start;cursor:pointer;flex-wrap:nowrap}
+    .risk-card:hover{transform:none}
+    .risk-card.open{background:rgba(198,166,98,.05);border-color:var(--line)}
+    .risk-card .num{order:0;font-size:19px;min-width:0;flex:0 0 auto;line-height:1.2}
+    .risk-card>div:not(.num){order:1;flex:1 1 0;min-width:0}
+    .risk-card h4{font-size:15px;margin-bottom:0}
+    .risk-card::after{order:2;content:"+";flex:0 0 auto;font-family:var(--serif);font-size:24px;color:var(--gold);line-height:1;transition:transform .3s}
+    .risk-card.open::after{transform:rotate(45deg)}
+    .risk-card p{font-size:13px;max-height:0;opacity:0;overflow:hidden;margin:0;
+      transition:max-height .4s ease,opacity .3s ease,margin-top .3s ease}
+    .risk-card.open p{max-height:200px;opacity:1;margin-top:6px}
+    .scenario{padding:22px}
+    .scenario h4{font-size:21px}
+    .scenario li{font-size:13px}
+    .quote-band{padding:50px 0}
+    .breakdown .br-row{padding:14px 18px;font-size:13.5px}
+    .breakdown .br-row b{font-size:18px}
+    .bignum{font-size:clamp(58px,19vw,88px)}
+    .exclusivity{padding:22px 16px}
+    .step{grid-template-columns:1fr;gap:8px;padding:26px 0}
+    .step .st-num{font-size:40px}
+    .step h4{font-size:21px}
+    .step p{font-size:14px}
+    .trust-item{padding:15px;gap:11px}
+    .trust-item span{font-size:13px}
+    .faq-q{padding:20px 0}
+    .faq-a p{font-size:14px;padding-bottom:22px}
+    .note-box{font-size:12.5px;padding:15px 18px}
+    .form-grid{grid-template-columns:1fr}
+    .form-card{padding:26px}
+    .foot-grid{grid-template-columns:1fr;gap:32px}
+    .foot-phrase{font-size:16px}
+    .trust-grid{grid-template-columns:1fr}
+    .grid-4{grid-template-columns:1fr 1fr}
+    .calc{padding:24px}
+    .calc-body{grid-template-columns:1fr;gap:0}
+    .calc-outputs{border-left:0;padding-left:0;border-top:1px solid var(--line);padding-top:20px;margin-top:10px}
+    .calc-disclaimer{margin-top:16px}
+    .mobile-menu.open{display:flex}
+  }
+  @media(max-width:480px){
+    .hero{padding:118px 0 54px}
+    .hero h1{font-size:25px;line-height:1.22}
+    .exclusivity{margin:24px auto;padding:20px 14px}
+    .exclusivity p{font-size:9.5px;letter-spacing:.16em;line-height:1.95}
+    .hero-sub{font-size:14px;margin-bottom:14px}
+    .hero-secondary{font-size:16px;margin-bottom:26px}
+    .hero-note{font-size:11.5px}
+    .hero-financials{margin-top:26px}
+    .fin-card b{font-size:27px}
+    .grid-4{grid-template-columns:1fr}
+    .btn{width:100%;justify-content:center;height:54px}
+    .hero-ctas{flex-direction:column}
+    .section-title{font-size:23px}
+    .quote-band p{font-size:23px;max-width:16ch}
+    .mobile-menu a{font-size:26px}
+  }
+
+  /* comparison table -> stacked cards on mobile (no sideways scroll) */
+  @media(max-width:820px){
+    .compare-scroll{overflow:visible;border:0;background:transparent;border-radius:0}
+    table.compare{display:block;min-width:0;width:100%;border-collapse:separate}
+    table.compare thead{display:none}
+    table.compare tbody{display:block}
+    table.compare tbody tr{display:block;border:1px solid var(--line);border-radius:14px;
+      background:rgba(26,24,19,.55);padding:4px 16px 10px;margin-bottom:14px}
+    table.compare tbody tr:last-child{margin-bottom:0}
+    table.compare tbody th{display:block;width:auto;padding:13px 0 4px;
+      font-family:var(--serif);font-size:18px;color:#fff;font-weight:500;letter-spacing:0}
+    table.compare td{display:flex;justify-content:space-between;align-items:baseline;gap:16px;
+      padding:10px 0;border-bottom:1px solid var(--line-soft);font-size:13.5px;text-align:right;vertical-align:baseline}
+    table.compare td:last-child{border-bottom:0}
+    table.compare td::before{content:attr(data-label);flex:0 0 44%;text-align:left;
+      font-size:10.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted-2);font-weight:600}
+    table.compare td.ours{background:rgba(198,166,98,.09);border-radius:9px;padding:11px 12px;margin-top:4px;color:var(--gold-bright)}
+    table.compare td.ours::before{color:var(--gold)}
+  }
+
+  /* mobile menu */
+  .mobile-menu{display:none;position:fixed;inset:0;z-index:99;background:rgba(10,9,8,.97);backdrop-filter:blur(20px);
+    flex-direction:column;align-items:center;justify-content:center;gap:30px}
+  .mobile-menu a{font-family:var(--serif);font-size:30px;color:var(--text)}
+  .mobile-menu a:hover{color:var(--gold-bright)}
+  .mobile-menu .close{position:absolute;top:26px;right:26px;font-size:30px;color:var(--muted);cursor:pointer}
+
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+    .reveal{opacity:1!important;transform:none!important;filter:none!important;clip-path:none!important}
+  }
+</style>
+<link rel="stylesheet" href="assets/swiper-bundle.min.css">
+</head>
+<body>
+<div class="grain"></div>
+
+<!-- ============ HEADER ============ -->
+<header id="top">
+  <div class="nav-inner">
+    <a href="#top" class="brand">
+      <span class="mark">L</span>
+      <span>Lawford&nbsp;&amp;&nbsp;Crane<small>Prime London Income</small></span>
+    </a>
+    <nav class="nav">
+      <a href="#top">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#benefits">Benefits</a>
+      <a href="#process">Process</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="nav-cta">Get My Rent Offer</a>
+    <div class="burger" id="burger"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<div class="mobile-menu" id="mobileMenu">
+  <span class="close" id="menuClose">&times;</span>
+  <a href="#top">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#benefits">Benefits</a>
+  <a href="#process">Process</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <video autoplay muted loop playsinline preload="auto"
+      poster="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=2400&q=85">
+      <source src="assets/hero.mp4" type="video/mp4">
+      <img src="https://images.unsplash.com/photo-1513635269975-59663e0ac1ad?auto=format&fit=crop&w=2400&q=85" alt="Aerial view of central London">
+    </video>
+  </div>
+
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <h1>Guaranteed London Rent.<br><em>Paid Whether Occupied or Empty.</em></h1>
+
+        <div class="exclusivity">
+          <span class="exc-label">&#9670;&nbsp; Exclusive Coverage</span>
+          <p>Mayfair · Belgravia · Kensington · Chelsea · Marylebone · St John's Wood · &amp; surrounding prime central London</p>
+        </div>
+
+        <p class="hero-sub">We pay landlords an agreed fixed rent every month — whether the property is occupied or empty. No vacancy stress. No management fee. No chasing tenants or agents.</p>
+        <p class="hero-secondary">Your rent is fixed. Our occupancy is our risk.</p>
+
+        <div class="hero-ctas">
+          <a href="#contact" class="btn btn-primary">Get My Rent Offer <span class="ar">&rarr;</span></a>
+          <a href="#process" class="btn btn-ghost">How It Works</a>
+        </div>
+        <p class="hero-note">For qualifying prime central London properties, subject to assessment and agreement.</p>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ INCOME CALCULATOR (below hero) ============ -->
+<section class="band-tight" id="calculator" style="background:var(--charcoal)">
+  <div class="wrap">
+    <div class="head-center reveal" style="margin-bottom:38px">
+      <span class="kicker">Income Estimator</span>
+      <h2 class="section-title">See What Your Property Could Produce.</h2>
+      <p class="lead">Enter the monthly rent and term to estimate your guaranteed income, annual savings and illustrative upfront payment.</p>
+    </div>
+    <div class="calc reveal" id="calc">
+      <div class="calc-body">
+        <div class="calc-inputs">
+          <div class="calc-field">
+            <label>Monthly rent <span class="val" id="rentLabel">£4,500</span></label>
+            <div class="calc-input">
+              <span class="prefix">£</span>
+              <input type="number" id="rent" value="4500" min="500" step="50" inputmode="numeric">
+            </div>
+          </div>
+          <div class="calc-field">
+            <label>Agreement term <span class="val" id="termLabel">5 years</span></label>
+            <input type="range" id="term" min="1" max="5" step="1" value="5">
+          </div>
+          <div class="calc-field">
+            <label>Upfront payment term <span class="val" id="upfrontLabel">2 years</span></label>
+            <input type="range" id="upfront" min="1" max="5" step="1" value="2">
+          </div>
+          <p class="calc-disclaimer">Illustrative only. Final terms depend on location, condition, income modelling and legal review.</p>
+        </div>
+        <div class="calc-outputs">
+          <div class="out-row"><span>Guaranteed rent per year</span><b id="o-annual">£54,000</b></div>
+          <div class="out-row"><span>Guaranteed rent over term</span><b id="o-term">£270,000</b></div>
+          <div class="out-row"><span>Annual fee saving at 12%</span><b id="o-feeyear">£6,480</b></div>
+          <div class="out-row"><span>Total fee saving over term</span><b id="o-feetotal">£32,400</b></div>
+          <div class="out-row feature"><span>Illustrative upfront payment</span><b id="o-upfront">£108,000</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 2 — THE PROBLEM / ABOUT ============ -->
+<section class="band bg-fade" id="about">
+  <div class="bg-img"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80" alt=""></div>
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="copy">
+        <span class="kicker">The Problem</span>
+        <h2 class="section-title" style="margin-top:22px">Owning a London property should not feel like a second job.</h2>
+        <p class="lead">Vacancy, unreliable occupiers, late payments, repairs, compliance, agents, keys, contractors and constant messages can turn a good property into daily stress.</p>
+        <p class="lead">We solve this by giving owners a fixed income structure where our company takes responsibility for the operational and commercial risk.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="ic">↓</div><h4>Vacancy</h4><p>Empty months reduce income and erode your annual yield.</p></div>
+        <div class="card"><div class="ic">⏱</div><h4>Late payments</h4><p>Unpredictable cash flow makes planning difficult.</p></div>
+        <div class="card"><div class="ic">%</div><h4>Agent fees</h4><p>Ongoing commissions quietly eat into your return.</p></div>
+        <div class="card"><div class="ic">⚙</div><h4>Repairs</h4><p>Maintenance takes time, coordination and attention.</p></div>
+        <div class="card"><div class="ic">⌖</div><h4>Remote ownership</h4><p>Managing from a distance is difficult and slow.</p></div>
+        <div class="card"><div class="ic">~</div><h4>Unpredictable income</h4><p>Returns swing with occupancy and market timing.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 3 — FIXED MONTHLY RENT / SERVICES ============ -->
+<section class="band-tight" id="services" style="background:var(--charcoal)">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="copy">
+        <span class="kicker">Fixed Monthly Rent</span>
+        <h2 class="section-title" style="margin-top:22px">You Get Paid<br>Every Month.</h2>
+        <p class="lead">Once we agree the rent, you receive a fixed monthly payment. Your income does not depend on whether we have found an occupier, tenant, guest or client.</p>
+        <p class="lead gold-text" style="font-family:var(--serif);font-size:22px;font-style:italic">If the property is empty, that is our risk — not yours.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card"><div class="ic">✦</div><h4>Paid occupied or empty</h4><p>Your agreed rent arrives regardless of occupancy.</p></div>
+        <div class="card"><div class="ic">✦</div><h4>No performance commission</h4><p>Your payment is not tied to how we let the property.</p></div>
+        <div class="card"><div class="ic">✦</div><h4>No vacancy stress</h4><p>Void periods are ours to absorb, not yours.</p></div>
+        <div class="card"><div class="ic">✦</div><h4>No chasing agents</h4><p>One agreement, one counterparty, one fixed payment.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- highlight quote -->
+<section class="quote-band reveal">
+  <div class="wrap">
+    <p class="serif">Your rent is fixed. <em>Our occupancy is our risk.</em></p>
+  </div>
+</section>
+
+<!-- ============ SECTION 4 — 0% MANAGEMENT FEE ============ -->
+<section class="band" style="background:var(--black)">
+  <div class="wrap">
+    <div class="split reveal">
+      <div class="copy">
+        <span class="kicker">0% Management Fee</span>
+        <h2 class="section-title" style="margin-top:22px">Keep More of Your Rent.</h2>
+        <p class="lead">Many property managers charge around 12% every month. On a £4,500/month property, that can cost the owner £540 per month — £6,480 per year.</p>
+        <p class="lead">With our fixed rent model, we do not deduct a monthly management fee from your agreed rent. You receive the agreed amount, and our return depends on how well we operate the property after taking on the risk.</p>
+        <div class="note-box" style="margin-top:24px"><span class="ic">◆</span><span><b style="color:var(--gold-bright);font-weight:600">That is £6,480 per year</b> the owner can keep, reinvest or use elsewhere.</span></div>
+      </div>
+      <div>
+        <div class="breakdown">
+          <div class="br-row"><span>Property monthly rent</span><b>£4,500</b></div>
+          <div class="br-row"><span>Typical management fee</span><b>12%</b></div>
+          <div class="br-row"><span>Monthly fee paid to manager</span><b>£540</b></div>
+          <div class="br-row"><span>Annual cost to owner</span><b>£6,480</b></div>
+          <div class="br-row accent"><span>Your management fee with us</span><b>£0</b></div>
+        </div>
+        <p class="disclaimer-sm">The 12% figure is an example. Exact fees vary by provider and service level.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 5 — UPFRONT RENT OPTION ============ -->
+<section class="band bg-fade" style="background:var(--charcoal)">
+  <div class="bg-img"><img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2000&q=80" alt=""></div>
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Upfront Rent Option</span>
+      <h2 class="section-title">Up to 5 Years of Rent Paid Upfront.</h2>
+      <p class="lead">For selected central London properties, we can structure a multi-year rent agreement and pay the landlord upfront. Instead of waiting month by month, eligible owners can unlock liquidity from their property immediately without selling the asset.</p>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="card"><div class="ic">↗</div><h4>Reinvest</h4><p>Deploy capital into another property or opportunity.</p></div>
+      <div class="card"><div class="ic">↘</div><h4>Reduce debt</h4><p>Pay down borrowing and improve your position.</p></div>
+      <div class="card"><div class="ic">⌂</div><h4>Fund renovations</h4><p>Finance works on another asset in your portfolio.</p></div>
+      <div class="card"><div class="ic">≈</div><h4>Improve cash flow</h4><p>Bring forward years of income into the present.</p></div>
+      <div class="card"><div class="ic">⚿</div><h4>Unlock capital</h4><p>Access liquidity without selling the asset.</p></div>
+      <div class="card"><div class="ic">✓</div><h4>Receive certainty</h4><p>One agreed payment instead of monthly uncertainty.</p></div>
+    </div>
+    <div class="note-box reveal" style="margin-top:34px;max-width:760px"><span class="ic">◆</span><span>Available only for qualifying properties after assessment, income modelling and legal review.</span></div>
+  </div>
+</section>
+
+<!-- ============ SECTION 6 — £312,000 EXAMPLE ============ -->
+<section class="band" style="background:var(--black)">
+  <div class="wrap">
+    <div class="split reveal" style="align-items:center">
+      <div>
+        <span class="kicker">Worked Example</span>
+        <div class="bignum" style="margin:24px 0 8px">£312,000</div>
+        <h2 class="section-title" style="font-size:clamp(26px,3vw,38px)">in One Upfront Payment.</h2>
+        <p class="lead" style="margin-top:22px">For a qualifying central London apartment, we can structure a multi-year fixed rent agreement where the landlord receives a single upfront payment.</p>
+        <p class="lead">Instead of waiting for monthly rent over several years, the owner can receive a significant upfront payment while keeping ownership of the property.</p>
+        <p class="disclaimer-sm">This is an example scenario for a qualifying property and is subject to assessment, agreement and legal review.</p>
+      </div>
+      <div class="breakdown">
+        <div class="br-row"><span>Property</span><b style="font-size:17px">Qualifying central London apartment</b></div>
+        <div class="br-row"><span>Structure</span><b style="font-size:17px">Multi-year fixed rent agreement</b></div>
+        <div class="br-row accent"><span>Paid upfront</span><b>£312,000</b></div>
+        <div class="br-row"><span>Owner liquidity</span><b style="font-size:17px">Received immediately</b></div>
+        <div class="br-row"><span>Vacancy &amp; operating risk</span><b style="font-size:17px">Handled by us</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 7 — WE TAKE THE RISK ============ -->
+<section class="band bg-fade" style="background:var(--charcoal)">
+  <div class="bg-img"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=80" alt=""></div>
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">We Take the Risk</span>
+      <h2 class="section-title">Empty property? Late occupier? Maintenance issue? Our problem.</h2>
+      <p class="lead">Most companies manage tasks. We take responsibility for the outcome. Once the agreement is in place, your income is fixed. We handle the commercial risk, vacancy periods, occupier issues, operational problems and day-to-day management.</p>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="risk-card"><div class="num">01</div><div><h4>Vacancy Risk</h4><p>If the property is empty, you still receive your agreed rent.</p></div></div>
+      <div class="risk-card"><div class="num">02</div><div><h4>Occupier Risk</h4><p>We handle the people using the property and the issues that come with them.</p></div></div>
+      <div class="risk-card"><div class="num">03</div><div><h4>Payment Risk</h4><p>You are paid by us, not dependent on individual occupiers.</p></div></div>
+      <div class="risk-card"><div class="num">04</div><div><h4>Maintenance Risk</h4><p>We coordinate repairs, contractors and urgent property issues.</p></div></div>
+      <div class="risk-card"><div class="num">05</div><div><h4>Operational Risk</h4><p>Access, keys, scheduling, cleaning and daily operations are handled by us.</p></div></div>
+      <div class="risk-card"><div class="num">06</div><div><h4>Legal &amp; Admin Support</h4><p>Contracts, documentation and operational compliance handled with professional support.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8 — PROPERTY IMPROVEMENT ============ -->
+<section class="band" style="background:var(--black)">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Property Improvement</span>
+      <h2 class="section-title">We Can Improve the Property to Increase Its Performance.</h2>
+      <p class="lead">For suitable properties, we can help improve presentation, usability and performance. This may include furnishing, décor, smart access, professional styling, photography and selected upgrades — where commercially viable and subject to agreement.</p>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="card"><div class="ic">❖</div><h4>Furnishing &amp; Setup</h4><p>We can prepare empty or underperforming properties for stronger income performance.</p></div>
+      <div class="card"><div class="ic">⚿</div><h4>Smart Access</h4><p>Smart locks and access systems for smoother operations.</p></div>
+      <div class="card"><div class="ic">◐</div><h4>Professional Presentation</h4><p>Styling and photography to position the property properly.</p></div>
+      <div class="card"><div class="ic">⚒</div><h4>Maintenance Readiness</h4><p>We help keep the property ready, functional and presentable.</p></div>
+      <div class="card"><div class="ic">✦</div><h4>Selected Improvements</h4><p>Where commercially viable, we can invest in improvements that support stronger property performance.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 8.5 — PROPERTY GALLERY ============ -->
+<style>
+  .property-swiper{max-width:1000px;margin:42px auto 0;border:1px solid rgba(198,166,98,.25);border-radius:10px;overflow:hidden}
+  .property-swiper .swiper-slide{aspect-ratio:16/10;background:var(--black)}
+  .property-swiper .swiper-slide img{width:100%;height:100%;object-fit:cover;display:block}
+  .property-swiper .swiper-button-prev,.property-swiper .swiper-button-next{color:var(--gold-bright)}
+  .property-swiper .swiper-pagination-bullet{background:#ffffff;opacity:.4}
+  .property-swiper .swiper-pagination-bullet-active{opacity:1;background:var(--gold)}
+</style>
+<section class="band-tight" id="gallery" style="background:var(--charcoal)">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Selected Properties</span>
+      <h2 class="section-title">Properties We Manage &amp; Improve.</h2>
+      <p class="lead">A selection of London interiors we prepare, present and operate for guaranteed income.</p>
+    </div>
+    <div class="swiper property-swiper reveal">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide"><img src="assets/p1.jpg" alt="Bright dining and living room" loading="lazy"></div>
+        <div class="swiper-slide"><img src="assets/p2.jpg" alt="Living room with blue sofa" loading="lazy"></div>
+        <div class="swiper-slide"><img src="assets/p3.jpg" alt="Modern white kitchen" loading="lazy"></div>
+        <div class="swiper-slide"><img src="assets/p4.jpg" alt="Elegant living room" loading="lazy"></div>
+      </div>
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 9 — COMPARISON ============ -->
+<section class="band-tight" id="benefits" style="background:var(--charcoal)">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">The Comparison</span>
+      <h2 class="section-title">A Different Model for London Property Owners.</h2>
+      <p class="lead">Traditional agents charge fees and pass vacancy risk back to the owner. Our model gives owners agreed income while we take the operating risk.</p>
+    </div>
+    <div class="compare-scroll reveal">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th>&nbsp;</th>
+            <th>Traditional Letting Agent</th>
+            <th>Commission-Based Manager</th>
+            <th class="ours">Our Fixed Rent Model</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th>Owner income</th><td data-label="Letting Agent">Depends on tenant / payment</td><td data-label="Commission Manager">Depends on performance</td><td class="ours" data-label="Our Fixed Rent Model">Fixed agreed rent</td></tr>
+          <tr><th>Vacancy risk</th><td data-label="Letting Agent">Owner risk</td><td data-label="Commission Manager">Owner risk</td><td class="ours" data-label="Our Fixed Rent Model">Our risk</td></tr>
+          <tr><th>Management fee</th><td data-label="Letting Agent">Often charged</td><td data-label="Commission Manager">Around 12% monthly</td><td class="ours" data-label="Our Fixed Rent Model">0% management fee</td></tr>
+          <tr><th>Annual cost on £4,500/mo property</th><td data-label="Letting Agent">Variable</td><td data-label="Commission Manager">£6,480 per year at 12%</td><td class="ours" data-label="Our Fixed Rent Model">£0 management fee</td></tr>
+          <tr><th>Payment certainty</th><td data-label="Letting Agent">Not guaranteed</td><td data-label="Commission Manager">Variable</td><td class="ours" data-label="Our Fixed Rent Model">Paid by us</td></tr>
+          <tr><th>Day-to-day issues</th><td data-label="Letting Agent">Often passed to owner</td><td data-label="Commission Manager">Shared with owner</td><td class="ours" data-label="Our Fixed Rent Model">Handled by us</td></tr>
+          <tr><th>Upfront rent</th><td data-label="Letting Agent">Rare</td><td data-label="Commission Manager">No or limited</td><td class="ours" data-label="Our Fixed Rent Model">Available for selected properties</td></tr>
+          <tr><th>Best for</th><td data-label="Letting Agent">Standard landlords</td><td data-label="Commission Manager">Active owners</td><td class="ours" data-label="Our Fixed Rent Model">Owners wanting predictable income</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 10 — 30-DAY TRIAL ============ -->
+<section class="band-tight" style="background:var(--black)">
+  <div class="wrap">
+    <div class="split reveal" style="align-items:center">
+      <div class="copy">
+        <span class="kicker">30-Day Trial</span>
+        <h2 class="section-title" style="margin-top:22px">Try Us for 30 Days.</h2>
+        <p class="lead">Trust is earned. For selected management arrangements, suitable owners can start with a 30-day trial period before making a longer commitment.</p>
+        <p class="lead">If the arrangement is not right, you can leave without penalty.</p>
+        <p class="disclaimer-sm">Upfront rent and fixed long-term rent agreements are structured separately.</p>
+      </div>
+      <div style="text-align:center;border:1px solid var(--line);border-radius:24px;padding:60px 40px;background:radial-gradient(ellipse at top,rgba(198,166,98,.08),transparent)">
+        <div class="bignum" style="font-size:clamp(70px,11vw,140px)">30</div>
+        <p class="eyebrow" style="margin-top:8px">Days · No Penalty · No Pressure</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 11 — WHO THIS IS FOR ============ -->
+<section class="band" style="background:var(--charcoal)">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Who This Is For</span>
+      <h2 class="section-title">Built for London Property Owners Who Want Certainty.</h2>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="card"><div class="ic">⌂</div><h4>UK-Based Landlords</h4><p>For owners who want less involvement and more predictable income.</p></div>
+      <div class="card"><div class="ic">✈</div><h4>Overseas Owners</h4><p>For owners who need a reliable local operating partner in London.</p></div>
+      <div class="card"><div class="ic">£</div><h4>Property Investors</h4><p>For investors who want stable GBP income and reduced operational stress.</p></div>
+      <div class="card"><div class="ic">▦</div><h4>Portfolio Owners</h4><p>For owners with multiple properties who want fewer daily problems.</p></div>
+      <div class="card"><div class="ic">◷</div><h4>Second-Home Owners</h4><p>For owners who want their London property to generate income while they are away.</p></div>
+      <div class="card"><div class="ic">○</div><h4>Vacant Property Owners</h4><p>For owners whose property is empty, underused or not performing properly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 12 — EXAMPLE SCENARIOS ============ -->
+<section class="band" style="background:var(--black)">
+  <div class="wrap">
+    <div class="head-center reveal">
+      <span class="kicker">Illustrative</span>
+      <h2 class="section-title">Example Property Scenarios.</h2>
+    </div>
+    <div class="grid-3 reveal">
+      <div class="scenario">
+        <div class="tag">Paddington · W2</div>
+        <h4>1 Bedroom Apartment</h4>
+        <ul>
+          <li><span>Previous income</span><b>£1,400/mo</b></li>
+          <li><span>Our fixed rent offer</span><b>£1,800/mo</b></li>
+          <li><span>Owner option</span><b>24 months upfront</b></li>
+          <li><span>Management fee</span><b>0%</b></li>
+        </ul>
+        <p class="result">Predictable income, no vacancy exposure, no monthly commission.</p>
+      </div>
+      <div class="scenario">
+        <div class="tag">Central London</div>
+        <h4>2 Bedroom Apartment</h4>
+        <ul>
+          <li><span>Owner goal</span><b>Predictable income</b></li>
+          <li><span>Involvement wanted</span><b>None day-to-day</b></li>
+          <li><span>Structure agreed</span><b>Fixed rent</b></li>
+          <li><span>Operations</span><b>Taken by us</b></li>
+        </ul>
+        <p class="result">Owner receives fixed monthly income while occupancy &amp; performance risk sits with us.</p>
+      </div>
+      <div class="scenario">
+        <div class="tag">Prime Central London</div>
+        <h4>Apartment · Upfront</h4>
+        <ul>
+          <li><span>Structure</span><b>Multi-year fixed rent</b></li>
+          <li><span>Upfront payment</span><b>£312,000</b></li>
+          <li><span>Ownership</span><b>Retained</b></li>
+          <li><span>Operating risk</span><b>Ours</b></li>
+        </ul>
+        <p class="result">Owner unlocks liquidity immediately without selling the property.</p>
+      </div>
+    </div>
+    <div class="note-box reveal" style="margin-top:34px;max-width:820px"><span class="ic">◆</span><span>These are example scenarios used for illustration. They are not presented as verified completed case studies.</span></div>
+  </div>
+</section>
+
+<!-- ============ SECTION 13 — HOW IT WORKS ============ -->
+<section class="band" id="process" style="background:var(--charcoal)">
+  <div class="wrap">
+    <div class="head-center reveal" style="margin-bottom:40px">
+      <span class="kicker">The Process</span>
+      <h2 class="section-title">How It Works.</h2>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="st-num">01</div><div><h4>Send Us Your Property Details</h4><p>Share the address, property type, number of bedrooms, condition, current rent and availability.</p></div></div>
+      <div class="step"><div class="st-num">02</div><div><h4>We Assess the Property</h4><p>We review location, income potential, condition, legal structure, operating requirements and commercial viability.</p></div></div>
+      <div class="step"><div class="st-num">03</div><div><h4>You Receive a Fixed Rent Offer</h4><p>We present a clear proposal: monthly fixed rent, upfront rent option or tailored operating agreement.</p></div></div>
+      <div class="step"><div class="st-num">04</div><div><h4>We Prepare and Operate the Property</h4><p>We handle setup, access, presentation, maintenance coordination and day-to-day operations.</p></div></div>
+      <div class="step"><div class="st-num">05</div><div><h4>You Receive Agreed Income</h4><p>You receive your agreed rent monthly or upfront, while we take the occupancy and operating risk.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 14 — TRUST ============ -->
+<section class="band" style="background:var(--black)">
+  <div class="wrap">
+    <div class="split reveal" style="align-items:start;margin-bottom:44px">
+      <div class="copy">
+        <span class="kicker">Trust</span>
+        <h2 class="section-title" style="margin-top:22px">Why Owners Trust Us With London Property.</h2>
+      </div>
+      <p class="lead" style="font-family:var(--serif);font-size:23px;font-style:italic;color:var(--beige)">We are not paid to simply “manage” your property. We are commercially responsible for making the property perform after agreeing your rent. That means our incentives are aligned with yours.</p>
+    </div>
+    <div class="trust-grid reveal">
+      <div class="trust-item"><span class="chk">✦</span><span>London-based operational team</span></div>
+      <div class="trust-item"><span class="chk">✦</span><span>Written agreements under English law</span></div>
+      <div class="trust-item"><span class="chk">✦</span><span>Clear fixed rent structure</span></div>
+      <div class="trust-item"><span class="chk">✦</span><span>Transparent offer before commitment</span></div>
+      <div class="trust-item"><span class="chk">✦</span><span>Professional property review</span></div>
+      <div class="trust-item"><span class="chk">✦</span><span>Professional inventory &amp; check-in process</span></div>
+      <div class="trust-item"><span class="chk">✦</span><span>Vetted contractors and cleaners</span></div>
+      <div class="trust-item"><span class="chk">✦</span><span>Dedicated owner contact</span></div>
+      <div class="trust-item"><span class="chk">✦</span><span>No hidden monthly management commission</span></div>
+      <div class="trust-item"><span class="chk">✦</span><span>Occupancy risk taken by us</span></div>
+      <div class="trust-item"><span class="chk">✦</span><span>Owner income agreed in advance</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 15 — FAQ ============ -->
+<section class="band-tight" style="background:var(--charcoal)">
+  <div class="wrap">
+    <div class="head-center reveal" style="margin-bottom:30px">
+      <span class="kicker">FAQ</span>
+      <h2 class="section-title">Questions Owners Ask.</h2>
+    </div>
+    <div class="faq reveal">
+      <div class="faq-item">
+        <div class="faq-q"><h4>Do I get paid if the property is empty?</h4><span class="pm">+</span></div>
+        <div class="faq-a"><p>Yes. Under the fixed rent model, you receive the agreed rent whether the property is occupied or empty. Occupancy risk sits with us.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>Do you charge a management fee?</h4><span class="pm">+</span></div>
+        <div class="faq-a"><p>No. We do not deduct a monthly management fee from your agreed rent. On a £4,500/month property, a typical 12% management fee would cost £540 per month or £6,480 per year.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>Can I receive rent upfront?</h4><span class="pm">+</span></div>
+        <div class="faq-a"><p>For selected central London properties, we can structure multi-year upfront rent payments. This is subject to property assessment, income modelling and legal review.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>Is every property eligible?</h4><span class="pm">+</span></div>
+        <div class="faq-a"><p>No. We review each property individually based on location, condition, legal structure, operating potential and commercial viability.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>Do you only work with overseas landlords?</h4><span class="pm">+</span></div>
+        <div class="faq-a"><p>No. We work with UK-based landlords, overseas owners, investors, portfolio landlords and second-home owners.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>Who handles maintenance?</h4><span class="pm">+</span></div>
+        <div class="faq-a"><p>We coordinate day-to-day maintenance, contractors and urgent operational issues as part of the agreed structure.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>What types of properties do you prefer?</h4><span class="pm">+</span></div>
+        <div class="faq-a"><p>We focus mainly on qualifying prime central London apartments and houses, especially Mayfair, Belgravia, Kensington, Chelsea, Marylebone, St John's Wood and surrounding prime locations.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SECTION 16 — FINAL CTA + FORM ============ -->
+<section class="band final" id="contact" style="background:var(--black)">
+  <div class="bg-img" style="opacity:.1"><img src="https://images.unsplash.com/photo-1529655683826-aba9b3e77383?auto=format&fit=crop&w=2000&q=80" alt=""></div>
+  <div class="wrap">
+    <div class="split" style="align-items:start;gap:56px">
+      <div class="copy reveal">
+        <span class="kicker">Get Your Offer</span>
+        <h2 class="section-title" style="margin-top:22px">Turn Your London Property Into Predictable Income.</h2>
+        <p class="lead" style="margin-top:22px">Send us your property details and we will assess whether it qualifies for fixed monthly rent, upfront rent or a tailored operating agreement.</p>
+        <div class="hero-ctas" style="margin-top:30px">
+          <a href="#leadForm" class="btn btn-primary">Get My Rent Offer <span class="ar">&rarr;</span></a>
+          <a href="#leadForm" class="btn btn-ghost">Speak to a Specialist</a>
+        </div>
+        <div class="exclusivity" style="margin-top:36px;max-width:none">
+          <p>Mayfair · Belgravia · Kensington · Chelsea · Marylebone · St John's Wood · &amp; surrounding prime central London</p>
+        </div>
+      </div>
+
+      <div class="form-card reveal" id="leadForm">
+        <form id="rentForm">
+          <div class="form-grid">
+            <div class="field"><label>Full name</label><input type="text" name="name" required placeholder="Your name"></div>
+            <div class="field"><label>Email</label><input type="email" name="email" required placeholder="you@email.com"></div>
+            <div class="field"><label>Phone / WhatsApp</label><input type="tel" name="phone" placeholder="+44 …"></div>
+            <div class="field"><label>Property postcode</label><input type="text" name="postcode" placeholder="e.g. W1K"></div>
+            <div class="field"><label>Property type</label>
+              <select name="type"><option value="">Select…</option><option>Apartment</option><option>House</option><option>Other</option></select>
+            </div>
+            <div class="field"><label>Bedrooms</label>
+              <select name="bedrooms"><option value="">Select…</option><option>Studio</option><option>1</option><option>2</option><option>3</option><option>4+</option></select>
+            </div>
+            <div class="field"><label>Current condition</label>
+              <select name="condition"><option value="">Select…</option><option>Excellent</option><option>Good</option><option>Average</option><option>Needs work</option></select>
+            </div>
+            <div class="field"><label>Furnished?</label>
+              <select name="furnished"><option value="">Select…</option><option>Furnished</option><option>Unfurnished</option></select>
+            </div>
+            <div class="field"><label>Current / expected rent</label><input type="text" name="rent" placeholder="£ per month"></div>
+            <div class="field"><label>Currently vacant?</label>
+              <select name="vacant"><option value="">Select…</option><option>Yes</option><option>No</option></select>
+            </div>
+            <div class="field"><label>Owner location</label><input type="text" name="location" placeholder="City / country"></div>
+            <div class="field"><label>Interested in</label>
+              <select name="interest"><option value="">Select…</option><option>Fixed monthly rent</option><option>Upfront rent</option><option>Property operation</option><option>Not sure</option></select>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;margin-top:22px">Submit Property Details <span class="ar">&rarr;</span></button>
+          <p class="form-note">By submitting, you request an assessment. For qualifying prime central London properties only. Final terms depend on assessment and legal review.</p>
+        </form>
+        <div class="form-success" id="formSuccess">
+          <div class="tick">✓</div>
+          <h3 style="font-size:26px;color:#fff;margin-bottom:10px">Thank you.</h3>
+          <p style="color:var(--muted)">We have received your property details. A London property specialist will review and respond with next steps.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand">
+          <span class="mark">L</span>
+          <span>Lawford&nbsp;&amp;&nbsp;Crane<small>Prime London Income</small></span>
+        </a>
+        <p>Fixed rental income for owners of prime central London property. We agree your rent, take the occupancy and operating risk, and pay you whether the property is occupied or empty.</p>
+      </div>
+      <div class="foot-col">
+        <h5>Navigate</h5>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <p>London, United Kingdom</p>
+        <a href="mailto:hello@company-placeholder.com">hello@company-placeholder.com</a>
+        <a href="tel:+440000000000">Phone / WhatsApp placeholder</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p class="foot-phrase">Fixed London rental income. No management fee. Occupancy risk handled by us.</p>
+      <p class="foot-legal">© <span id="year">2026</span> Company name placeholder. For qualifying prime central London properties, subject to assessment and legal review.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ----- sticky header ----- */
+  var header = document.getElementById('top');
+  function onScroll(){ header.classList.toggle('scrolled', window.scrollY > 30); }
+  window.addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+  /* ----- mobile menu ----- */
+  var menu = document.getElementById('mobileMenu');
+  document.getElementById('burger').addEventListener('click', function(){ menu.classList.add('open'); });
+  document.getElementById('menuClose').addEventListener('click', function(){ menu.classList.remove('open'); });
+  menu.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ menu.classList.remove('open'); }); });
+
+  /* ----- reveal on scroll — non-standard, staggered, directional ----- */
+  function addRv(el, cls, delay){
+    el.classList.add('reveal');
+    if(cls) el.classList.add(cls);
+    if(delay) el.style.setProperty('--d', delay.toFixed(2) + 's');
+  }
+
+  // 1) cascade: stagger the children of grids / steps / trust + remove reveal from the wrapper
+  document.querySelectorAll('.grid-2,.grid-3,.grid-4,.steps,.trust-grid').forEach(function(group){
+    var kids = Array.prototype.slice.call(group.children);
+    kids.forEach(function(child, i){ addRv(child, 'rv-rise', (i % 4) * 0.09); });
+    group.classList.remove('reveal');
+  });
+
+  // 2) split sections: columns enter from opposite sides
+  document.querySelectorAll('.split').forEach(function(sp){
+    var kids = sp.children;
+    if(kids[0]) addRv(kids[0], 'rv-left');
+    if(kids[1] && !kids[1].matches('.grid-2,.grid-3,.grid-4')) addRv(kids[1], 'rv-right', 0.08);
+    sp.classList.remove('reveal');
+  });
+
+  // 3) centred section headers focus-zoom in
+  document.querySelectorAll('.head-center').forEach(function(h){ h.classList.add('rv-zoom'); });
+
+  // 4) observe everything (existing + newly tagged)
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:.1, rootMargin:'0px 0px -10% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  /* ----- FAQ accordion ----- */
+  document.querySelectorAll('.faq-item').forEach(function(item){
+    item.querySelector('.faq-q').addEventListener('click', function(){
+      var open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function(i){ i.classList.remove('open'); });
+      if(!open) item.classList.add('open');
+    });
+  });
+
+  /* ----- mobile: tap-to-expand feature cards ----- */
+  var mqMobile = window.matchMedia('(max-width:820px)');
+  document.querySelectorAll('.card, .risk-card').forEach(function(c){
+    c.setAttribute('role', 'button');
+    c.addEventListener('click', function(){
+      if(!mqMobile.matches) return;
+      c.classList.toggle('open');
+    });
+  });
+
+  /* ----- calculator ----- */
+  var rent = document.getElementById('rent');
+  var term = document.getElementById('term');
+  var upfront = document.getElementById('upfront');
+
+  var GBP = new Intl.NumberFormat('en-GB', {style:'currency', currency:'GBP', maximumFractionDigits:0});
+  function money(n){ return GBP.format(Math.round(n)); }
+
+  function setFill(el){
+    var min = +el.min, max = +el.max, v = +el.value;
+    el.style.setProperty('--fill', ((v - min) / (max - min) * 100) + '%');
+  }
+
+  function calc(){
+    var r = Math.max(0, +rent.value || 0);
+    var t = +term.value;
+    var u = +upfront.value;
+
+    var annual = r * 12;
+    var overTerm = r * 12 * t;
+    var feeYear = r * 12 * 0.12;
+    var feeTotal = feeYear * t;
+    var upfrontPay = r * 12 * u;
+
+    document.getElementById('rentLabel').textContent = money(r);
+    document.getElementById('termLabel').textContent = t + (t === 1 ? ' year' : ' years');
+    document.getElementById('upfrontLabel').textContent = u + (u === 1 ? ' year' : ' years');
+
+    document.getElementById('o-annual').textContent = money(annual);
+    document.getElementById('o-term').textContent = money(overTerm);
+    document.getElementById('o-feeyear').textContent = money(feeYear);
+    document.getElementById('o-feetotal').textContent = money(feeTotal);
+    document.getElementById('o-upfront').textContent = money(upfrontPay);
+
+    setFill(term); setFill(upfront);
+  }
+  [rent, term, upfront].forEach(function(el){ el.addEventListener('input', calc); });
+  calc();
+
+  /* ----- lead form (front-end only) ----- */
+  document.getElementById('rentForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    this.style.display = 'none';
+    document.getElementById('formSuccess').classList.add('show');
+  });
+
+  /* ----- year ----- */
+  try { document.getElementById('year').textContent = new Date().getFullYear(); } catch(_){}
+})();
+</script>
+<script src="assets/swiper-bundle.min.js"></script>
+<script>
+  new Swiper('.property-swiper', {
+    loop: true,
+    speed: 600,
+    autoplay: { delay: 4000, disableOnInteraction: false },
+    pagination: { el: '.property-swiper .swiper-pagination', clickable: true },
+    navigation: { nextEl: '.property-swiper .swiper-button-next', prevEl: '.property-swiper .swiper-button-prev' }
+  });
+</script>
+</body>
+</html>
